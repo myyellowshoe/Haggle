@@ -1,0 +1,181 @@
+<html>
+<header>
+<title>Haggle</title>
+<script type="text/javascript" src="YmmCtrlSupport_1.1.0.70.js"></script>
+<script type="text/javascript" src="ymmData.js"></script>
+<script type="text/javascript"><!--
+
+// Defining Variables
+var yearsArr = new Array();
+var makeArr = new Array();
+var modelArr = new Array();
+yearsArr = [2007, 2006, 2005, 2004, 2003, 2002, 2001, 2000 ,1999, 1998, 1997, 1996, 1995, 1994, 1993, 1992, 1991, 1990, 1989, 1988, 1987];
+
+var yearField;
+var makeField;
+var modelField;
+
+//Number & Word Arrays - used to split the arrays into
+var makeWordArr = new Array();
+var makeNumArr = new Array();
+var modelWordArr = new Array();
+var modelNumArr = new Array();
+
+// Main Values
+var yearValue;
+var makeValue
+var makeValueNum
+var modelValue;
+
+
+
+
+function buildVars(){
+yearField = document.selectFormOne.year;
+makeField = document.selectFormOne.make;
+modelField = document.selectFormOne.model;
+// to view current arrays
+arrayField = document.selectFormOne.viewArray;
+};
+
+function writeYears(){
+	for(i=0;i < yearsArr.length;i++){
+	 yearField.innerHTML += '<option>' + yearsArr[i] + '</option>';
+	};
+};
+
+
+
+function writeMake(){
+//Reseting Field
+makeField.innerHTML = '<option>' + '--Please Select A Make' + '</option>';
+// Adding selection to value list
+yearValue = yearField.options[yearField.selectedIndex].value;
+  
+  // Spliting Arry to 2 arrays
+    //Splitting to first array
+   makeArr = ymUsed[yearValue].split(',');   
+
+   // Splitting makeArr to number and word array
+   for(i=0;i < makeArr.length;i++){
+   var tempArr = makeArr[i].split('|');
+   makeNumArr.push(tempArr[0]);
+   makeWordArr.push(tempArr[1]);
+   }
+    // Printing out the array
+	for(i=0;i < makeWordArr.length;i++){
+	 makeField.innerHTML += '<option>' + makeWordArr[i] + '</option>';
+	};
+};
+
+
+
+function writeModel(){
+var makeYearValue;
+//Reseting Model Field
+modelField.innerHTML = '<option>' + '--Please Select A Model' + '</option>';
+    // Adding selection to make value list
+	makeValue = makeField.options[makeField.selectedIndex].value
+	makeValueNum = makeNumArr[makeWordArr.indexOf(makeValue)];
+	
+	  // Spliting Arry to 2 arrays
+		   // Splitting to first Array	
+		   makeYearValue = yearValue + '~' + makeValueNum;
+		   	modelArr = ymmUsed[makeYearValue].split(',');
+			
+
+	    // Pulling in array based on year & model
+		   for(i=0;i < modelArr.length;i++){
+		   var tempArr = modelArr[i].split('|');
+		   modelNumArr.push(tempArr[0]);
+		   modelWordArr.push(tempArr[1]);
+		   }
+
+	
+	for(i=0;i < modelWordArr.length;i++){
+	 modelField.innerHTML += '<option>' + modelWordArr[i] + '</option>';
+	};
+};
+
+
+
+--></script>
+
+
+
+</header>
+<body>
+
+<form name="selectFormOne" id="selectFormOne" action="grab-price.cgi?&section=1" method="post">
+<div id="screen1">
+
+<label>Year </label><select type="select" id="year" name="year" onChange="writeMake();" >
+<option>--Please Select A year</option>
+</select>
+<br />
+<label>Make </label><select type="select" id="make" name="make" onChange="writeModel();">
+<option>--Please Select A Make</option></select>
+<br />
+<label>Model </label><select type="select" name="model" id="model" >
+<option>--Please Select A Model</option>
+</select>
+</form>
+<script type="text/javascript"><!--
+buildVars();  
+writeYears();   
+--></script>
+
+
+</div>
+
+<div id="screen2">
+
+<label>Mileage </label><input type="text" id="mileage" name="mileage" />
+<br />
+<label>Zip </label><input type="text" id="zipCode" name="zipCode" />
+
+
+</div>
+
+<div id="screen3">
+<ul>
+<label>Please Select Value </label><br />
+<br />
+<label>Trade In Value</label><input type="radio" name="value" value="Trade-In"/><br />
+<label>Private Party Value</label><input type="radio" name="value" value="Private Party"/><br />
+<label>Suggested Retail Value</label><input type="radio" name="value" value="Retail"/>
+</ul>
+</div>
+<input type="submit" value="Start Haggling">
+</form>
+
+<div id="screen4">
+<h2>Select Trim</h2>
+<ul>
+<li><a href="">Trim1</a></li>
+<li><a href="">Trim2</a></li>
+<li><a href="">Trim3</a></li>
+</ul>
+</div>
+
+<div id="screen5">
+
+<table>
+<tr><th>Condition</th> <th>Value</th></tr>
+<tr><td>Excelent</td><td>Price</td></tr>
+<tr><td>Good</td><td>Price</td></tr>
+<tr><td>Fair</td><td>Price</td></tr>
+
+</table>
+</div>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

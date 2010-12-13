@@ -1,0 +1,16 @@
+User Navigates to webpage.
+User Selects Information from drop down page 1.
+User Presses forward
+Hide Page 1
+Show Page 2
+User Selects Information from drop down page 2.
+User Presses submit.
+parameters are sent to perl script
+Perl/PHP Grabs the url and grabs page, and grabs the x number of links.
+perl Prints the Html Links For Page 3
+User clicks link
+Parameters are sent to perl script
+Perl/PHP Grabs the url and grabs page, and grabs the x number of links.
+perl Prints the Html Links For Page 4
+
+ 

@@ -1,0 +1,10 @@
+#LWP-Cookies-1.0
+Set-Cookie3: BIGipServerpool-www.kbb.com_DotNet-80=2896826176.20480.0000; path="/"; domain=www.kbb.com; path_spec; discard; version=0
+Set-Cookie3: BIGipServerpool.www.kbb.com=1829830666.20480.0000; path="/"; domain=www.kbb.com; path_spec; expires="2007-12-11 03:22:50Z"; version=0
+Set-Cookie3: DataVersionId=8615; path="/"; domain=www.kbb.com; path_spec; discard; version=0
+Set-Cookie3: PersistentZipCode=43130; path="/"; domain=www.kbb.com; path_spec; expires="2008-12-10 02:29:37Z"; version=0
+Set-Cookie3: Referer=kbb.com; path="/"; domain=www.kbb.com; path_spec; discard; version=0
+Set-Cookie3: TransientStateCheck=check; path="/"; domain=www.kbb.com; path_spec; discard; version=0
+Set-Cookie3: ZipCode=43130; path="/"; domain=www.kbb.com; path_spec; discard; version=0
+Set-Cookie3: bpCurrentView=Trim; path="/"; domain=www.kbb.com; path_spec; discard; version=0
+Set-Cookie3: bpPreviousView=UsedCarsHome; path="/"; domain=www.kbb.com; path_spec; discard; version=0
